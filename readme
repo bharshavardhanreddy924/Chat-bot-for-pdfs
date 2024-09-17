@@ -1,0 +1,64 @@
+# Document QA Bot
+
+This project is a **Document QA Bot** built using Streamlit, Pinecone, Sentence Transformers, and Hugging Face Transformers. The bot allows users to upload PDF documents, store the text data in a Pinecone index, and then ask questions about the content. The bot retrieves the most relevant document segments and generates answers using a pre-trained text generation model.
+
+## Features
+- **PDF Document Upload**: Users can upload a PDF file, and the bot processes the document by splitting it into chunks and embedding each chunk using a sentence transformer model.
+- **Pinecone Integration**: Document chunks are stored in a Pinecone vector database, enabling fast and efficient similarity searches for question-answering.
+- **Question Answering**: Users can input a query about the document, and the bot retrieves relevant document segments and generates an answer using a text-generation model.
+- **Multiple Query Processing**: The bot supports multiple queries in parallel using concurrent threads.
+
+## Tech Stack
+- **Streamlit**: For the user interface.
+- **Pinecone**: For storing and retrieving document embeddings.
+- **Sentence Transformers**: For embedding document text.
+- **Hugging Face Transformers**: For generating answers to questions based on document content.
+- **NLTK**: For sentence tokenization of the document content.
+- **PyPDF2**: For extracting text from PDF files.
+- **ThreadPoolExecutor**: For processing multiple queries concurrently.
+
+## Setup and Installation
+
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/bharshavardhanreddy924/document-qa-bot.git
+    cd document-qa-bot
+    ```
+
+2. **Install dependencies**:
+    Create a virtual environment and install the required packages.
+    ```bash
+    python -m venv venv
+    source venv/bin/activate   # On Windows, use venv\Scripts\activate
+    pip install -r requirements.txt
+    ```
+
+3. **Set up Pinecone**:
+    - Create an account on [Pinecone](https://www.pinecone.io/) and get your API key.
+    - Add your API key to the environment variable or replace the `PINECONE_API_KEY` and `PINECONE_ENVIRONMENT` in the code.
+
+4. **Run the app**:
+    To start the Streamlit app, run the following command:
+    ```bash
+    streamlit run app.py
+    ```
+
+5. **Upload a PDF and ask questions**:
+    - Upload a PDF document.
+    - Ask questions related to the document using the text input field.
+
+## Configuration
+- `PINECONE_API_KEY`: Replace with your Pinecone API key.
+- `PINECONE_ENVIRONMENT`: Set this to the Pinecone environment (e.g., "us-east-1").
+- `INDEX_NAME`: The name of the Pinecone index used for document storage.
+- `EMBEDDING_MODEL_NAME`: The pre-trained sentence transformer model for embedding text (default: "sentence-transformers/all-MiniLM-L6-v2").
+- `GENERATOR_MODEL_NAME`: The pre-trained text generation model for answering questions (default: "facebook/bart-large-cnn").
+
+## Example Usage
+1. Upload a PDF file.
+2. Type a question about the document's content.
+3. The bot will return a generated answer, along with relevant document segments.
+4. You can also process multiple queries at once.
+
+## License
+This project is licensed under the MIT License.
