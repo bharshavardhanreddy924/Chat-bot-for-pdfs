@@ -17,7 +17,7 @@ warnings.filterwarnings("ignore")
 nltk.download('punkt', quiet=True)
 
 # Download NLT# Pinecone setup
-PINECONE_API_KEY = "6ab416de-973e-436c-975c-3a3326c5887f"
+PINECONE_API_KEY = "api_key"
 PINECONE_ENVIRONMENT = "us-east-1"
 INDEX_NAME = "document-qa"
 # Model settings
